@@ -12,5 +12,5 @@ package Communicator;
 public interface Communication {
     public void connect(); //connects to the server
     public void send(String msg); //send the input of the user to everyone
-    public String recieve(); //
+    public String recieve(); //get input from user
 }

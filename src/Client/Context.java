@@ -12,4 +12,5 @@ package Client;
 public class Context {
     //booleans
     boolean uppercase;
+    
 }

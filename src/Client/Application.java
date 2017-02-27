@@ -12,10 +12,13 @@ import Commands.CLI;
  * @author Shelly.Baltazar
  */
 public class Application {
+    
+    
 
     public static void main(String[] args) {
         CLI cli = new CLI();
-        cli.nextString();
+        
+        cli.scanString(cli.nextString());
         
 
     }

@@ -47,29 +47,35 @@ public class CLI {
 //    
 //    
 //    }
-    
-    public String nextString(){
+        public String nextString() {
         System.out.print(userName + ">  ");
         return scan.nextLine();
     }
-    
-    public void scanString(String str){
+
+    public void scanString(String str) {
+        boolean comPresent = false;
+        boolean done = false;
         int length = str.length();
         String[] words = str.split(" ");
-        System.out.println(words);
-            
+        String[] foundCommands;
+
+        while (done == false) {
+            for (int i = words.length; i > 0; i--) {
+                for (int j = words[i].length(); j > 0; j--) {
+                    String w = words[i];
+                    if (w.charAt(j) == commandChar) {
+                        //add commands to string array
+                        
+
+                    }
+
+                }
+
+            }
         }
-    
-    
     }
-    
-    
-    
 
-
-
-
-
+}
 
 //    public void findCommand(String msg) {
 //        
