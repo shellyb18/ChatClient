@@ -25,6 +25,7 @@ public class CLI {
     static String userName = "Root";
     Scanner scan = new Scanner(System.in);
     public static char commandChar = '!';
+    List<String> foundCommands = new ArrayList<>();
     
     static{
         commands.add(new Exit());
@@ -55,9 +56,9 @@ public class CLI {
     public void scanString(String str) {
         boolean comPresent = false;
         boolean done = false;
-        int length = str.length();
+//        int length = str.length();
         String[] words = str.split(" ");
-        String[] foundCommands;
+        
 
         while (done == false) {
             for (int i = words.length; i > 0; i--) {
@@ -65,24 +66,24 @@ public class CLI {
                     String w = words[i];
                     if (w.charAt(j) == commandChar) {
                         //add commands to string array
-                        
-
+                        foundCommands.add(words[i]);
+                        comPresent = true;
                     }
 
                 }
 
             }
+            done = true;
         }
+    }
+    public void doCommands(){
+        for (String eachCommand : foundCommands) {
+            
+        }
+    
+    
+    
     }
 
 }
 
-//    public void findCommand(String msg) {
-//        
-//        if("exit".equals(msg.substring(1,msg.length()))){
-//            Exit exit = new Exit();
-//            exit.getName();
-//            exit.response;
-//            exit.getKeys();
-//        }
-//    }
