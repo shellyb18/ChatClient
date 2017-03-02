@@ -12,8 +12,6 @@ import Commands.CLI;
  * @author Shelly.Baltazar
  */
 public class Application {
-    
-    
 
     public static void main(String[] args) {
         CLI cli = new CLI();
@@ -21,7 +19,7 @@ public class Application {
         String result;
         while(true){ //while it hasn't exited
         result = cli.scanString(cli.nextString());
-        System.out.println("Echo> " + result);
+        System.out.println("Echo>  " + result);
         
         }
     }
