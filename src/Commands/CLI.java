@@ -25,7 +25,7 @@ public class CLI {
     static String userName = "Root";
     Scanner scan = new Scanner(System.in);
     public static char commandChar = '!';
-    List<String> foundCommands = new ArrayList<>();
+    
     
     static{
         commands.add(new Exit());
@@ -38,52 +38,52 @@ public class CLI {
         }
     }
     
-//    public void processString(String line){
-//        try{
-//        
-//        }catch{
-//        
-//        
-//        }
 //    
-//    
-//    }
         public String nextString() {
         System.out.print(userName + ">  ");
         return scan.nextLine();
     }
 
-    public void scanString(String str) {
-        boolean comPresent = false;
+    public String scanString(String str) {
         boolean done = false;
+        List<String> foundCommands = new ArrayList<>();
 //        int length = str.length();
-        String[] words = str.split(" ");
-        
+        String words[] = str.split(" ");
+        int index = str.indexOf(commandChar);
+        if (index >= 0) {
+            while (done == false) {
+                for (int i = words.length - 1; i >= 0; i--) {
 
-        while (done == false) {
-            for (int i = words.length; i > 0; i--) {
-                for (int j = words[i].length(); j > 0; j--) {
-                    String w = words[i];
-                    if (w.charAt(j) == commandChar) {
+                    String w = words[i].toLowerCase();
+                    System.out.println(w);
+                    if (w.charAt(0) == commandChar) {
                         //add commands to string array
-                        foundCommands.add(words[i]);
-                        comPresent = true;
+                        foundCommands.add(w.substring(1));
                     }
 
+                    for (String eachCommand : foundCommands) {
+                        String found = eachCommand.toLowerCase();
+                        if (comMap.containsKey(found)) {
+                            String args = "";
+                                for(int y = 0; y < i; y++){
+                                    args += words[y]+ " ";
+                                }
+
+                            Command cmd = comMap.get(found.substring(1));
+//                            String response =args + cmd.response((Arrays.copyOfRange(words, i,
+//                                    words.length)).replaceAll(" " + commandChar, "(" + commandChar + ")"));
+//                            System.out.println(response);
+//                            return scanString(response);
+                            //copy old array into new array and replace " !" with "(!)"
+                        }
+                    }
+                    done = true;
+
                 }
-
             }
-            done = true;
         }
-    }
-    public void doCommands(){
-        for (String eachCommand : foundCommands) {
-            
-        }
-    
-    
-    
-    }
 
+        return str;
+
+    }
 }
-

@@ -18,8 +18,11 @@ public class Application {
     public static void main(String[] args) {
         CLI cli = new CLI();
         
-        cli.scanString(cli.nextString());
+        String result;
+        while(true){ //while it hasn't exited
+        result = cli.scanString(cli.nextString());
+        System.out.println("Echo> " + result);
         
-
+        }
     }
 }
