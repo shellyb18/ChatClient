@@ -28,6 +28,7 @@ public class CLI {
 
     static {
         commands.add(new Exit());
+        commands.add(new Help());
 
         for (Command com : commands) {
             for (int i = 0; i < com.getKeys().length; i++) {
@@ -63,7 +64,8 @@ public class CLI {
                     for (String eachCommand : foundCommands) {
                         int l = 0;
                         if(comMap.containsKey(eachCommand)){
-                            comInMap[l] = eachCommand;
+                            Command c = comMap.get(eachCommand);
+                            c.response(words);
                         }
                     }
                     done = true;
@@ -83,13 +85,4 @@ public class CLI {
 
 
 
-
-
-
-//                            cmd.response(Arrays.copyOfRange(words,i,words.length));
-//                            String response = args + y and replace " !" with "(!)"
-//cmd.response((Arrays.copyOfRange(words, i,
-//                                    words.length)).replaceAll(" " + commandChar, "(" + commandChar + ")"));
-//                            System.out.println(response);
-//                            return scanString(response);
-                            //copy old array into new arra
+          
